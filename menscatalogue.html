@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width-device-width, initial-scale=1.0">
+        <title>Products - Lace Up</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+        <!--added a cdn link by searching font awesome4 cdn and getting this link from https://www.bootstrapcdn.com/fontawesome/ this url*/-->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <style>
+          /* Reset default browser styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Single product details */
+.single-product {
+  margin-top: 50px;
+}
+
+.single-product .row {
+  display: flex;
+}
+
+.single-product .col-2 {
+  flex-basis: 50%;
+  padding: 20px;
+}
+
+.single-product .col-2 img {
+  width: 100%;
+}
+
+.single-product .col-2 .small-img-row {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.single-product .col-2 .small-img-row .small-img-col {
+  flex-basis: 24%;
+}
+
+.single-product .col-2 .small-img {
+  width: 100%;
+  cursor: pointer;
+}
+
+.single-product .col-2 p {
+  margin-top: 30px;
+}
+
+.single-product .col-2 h1 {
+  font-size: 32px;
+  font-weight: 600;
+  margin-top: 20px;
+}
+
+.single-product .col-2 h4 {
+  font-size: 24px;
+  font-weight: 500;
+  color: #555;
+  margin-top: 10px;
+}
+
+.single-product .col-2 select {
+  margin-top: 20px;
+  padding: 10px;
+  width: 200px;
+  border-radius: 5px;
+  border: 1px solid #e0e0e0;
+}
+
+.single-product .col-2 input[type="number"] {
+  margin-top: 20px;
+  padding: 10px;
+  width: 50px;
+  border-radius: 5px;
+  border: 1px solid #e0e0e0;
+}
+
+.single-product .col-2 .btn {
+  display: inline-block;
+  background-color: #ff523b;
+  color: #fff;
+  font-size: 16px;
+  padding: 10px 30px;
+  margin-top: 20px;
+  border-radius: 30px;
+  transition: background-color 0.3s ease;
+}
+
+.single-product .col-2 .btn:hover {
+  background-color: #563434;
+}
+
+.single-product .col-2 h3 {
+  font-size: 24px;
+  font-weight: 600;
+  margin-top: 30px;
+  cursor: pointer;
+}
+
+.single-product .col-2 h3 i {
+  margin-left: 5px;
+}
+
+.single-product .col-2 p {
+  margin-top: 20px;
+  line-height: 24px;
+}
+
+/* Related Products */
+.row-2 {
+  margin-top: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.row-2 h2 {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.row-2 p {
+  font-size: 14px;
+  color: #555;
+}
+
+/* Products */
+.col-4 {
+  flex-basis: 25%;
+  padding: 20px;
+  min-width: 200px;
+  transition: transform 0.5s ease;
+}
+
+.col-4 img {
+  width: 100%;
+}
+
+.col-4 h4 {
+  font-size: 16px;
+  font-weight: 500;
+  margin-top: 10px;
+}
+
+.col-4 .rating {
+  color: #ff523b;
+  margin-top: 10px;
+}
+
+.col-4 p {
+  font-size: 16px;
+  font-weight: 500;
+  color: #555;
+}
+
+.col-4:hover {
+  transform: translateY(-5px);
+}
+
+/* Footer */
+.footer {
+  background-color: #000;
+  color: #fff;
+  padding: 20px;
+  margin-top: 50px;
+}
+
+.footer .container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.footer-col-1,
+.footer-col-2,
+.footer-col-3,
+.footer-col-4 {
+  min-width: 250px;
+  margin-bottom: 20px;
+}
+
+.footer-col-1 h3,
+.footer-col-2 h3,
+.footer-col-3 h3,
+.footer-col-4 h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.footer-col-1 img {
+  width: 160px;
+  margin-bottom: 20px;
+}
+
+.footer-col-1 p {
+  font-size: 14px;
+  color: #ccc;
+  margin-bottom: 20px;
+}
+
+.footer-col-2 p {
+  font-size: 14px;
+  color: #ccc;
+  margin-bottom: 20px;
+}
+
+.footer-col-3 ul,
+.footer-col-4 ul {
+  list-style-type: none;
+  line-height: 30px;
+}
+
+.footer-col-3 ul li,
+.footer-col-4 ul li {
+  display: inline-block;
+  color: #ccc;
+  margin-right: 10px;
+}
+
+.footer-col-3 ul li:hover,
+.footer-col-4 ul li:hover {
+  color: #fff;
+  cursor: pointer;
+}
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .row-2 {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .row-2 p {
+    margin-top: 10px;
+  }
+
+  .header {
+    position: relative;
+  }
+
+  .header:before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background-color: #000;
+    z-index: -1;
+  }
+
+  .h11{
+    text-align: center;
+  }
+</style>
+    </head>
+    <body>
+    <h1 class = "h11">Men's Section Catalogue</Section></h1>   
+        
+        <!------------------------------ Single product details------------------------------>
+        <div class="small-container single-product">
+            
+            
+            <!--<h2 class="title" >Featured Products</h2>-->
+            <div class="row">
+                    
+                    <div class="col-2">
+                        <h3>Downshifter Sports Shoes</h3>
+                        <h4>$50.00</h4>
+                        <select>
+                            <option>Select Size</option>
+                            <option>6<!--Small (s)--></option>
+                            <option>7<!--Medium (M)--></option>
+                            <option>8<!--Large (L)--></option>
+                            <option>9<!--XL--></option>
+                            <option>10<!--XXL--></option>
+                        </select>
+                        <input type="number" values="1">
+                        <a href="cart.html" class="btn">Add to Cart</a>
+                        <h3>Product Details <i class="fa fa-indent" ></i></h3>
+                        <br>
+                        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.</p>
+                    </div>
+                </div>
+            </div>
+        
+        
+        <!----------------------------------Title------------------------------------->
+        <div class="small-container">
+            <div class="row row-2">
+                <h2>Related Products</h2>
+                <a href="products.html"><p>View More</p></a>
+            </div>
+        </div>
+                
+        <!----------------------------------products------------------------------------->
+        <div class="small-container">
+             <div class="row">
+                     <div class="col-4">
+                        <a href="products-details.html"><img src="images/product-11.jpg"></a>
+                        <a href="products-details.html"><h4>Downshifter Sports Shoes</h4></a>
+                        <div class="rating">
+                            
+                            <i class="fa fa-star" ></i>
+                            <i class="fa fa-star" ></i>
+                            <i class="fa fa-star" ></i>
+                            <i class="fa fa-star-half-o" ></i>
+                            <i class="fa fa-star-o" ></i>
+                        </div>
+                        <p>$50.00</p>
+                    </div>
+                    <div class="col-4">
+                        <a href="products-details.html"><img src="images/product-2.jpg"></a>
+                        <h4>Lace-Up Running Shoes</h4>
+                        <div class="rating">
+                            <i class="fa fa-star" ></i>
+                            <i class="fa fa-star" ></i>
+                            <i class="fa fa-star" ></i>
+                            <i class="fa fa-star" ></i>
+                            <i class="fa fa-star-half-o" ></i>
+                        </div>
+                        <p>$35.00</p>
+                    </div>
+                    <div class="col-4">
+                        <a href="products-details.html"><img src="images/product-3.jpg"></a>
+                        <h4>Lace Fastening Shoes</h4>
+                        <div class="rating">
+                            <i class="fa fa-star" ></i>
+                            <i class="fa fa-star" ></i>
+                            <i class="fa fa-star" ></i>
+                            <i class="fa fa-star" ></i>
+                            <i class="fa fa-star-o" ></i>
+                        </div>
+                        <p>$15.00</p>
+                    </div>
+                    <div class="col-4">
+                        <a href="products-details.html"><img src="images/product-10.jpg"></a>
+                        <h4>Flat Lace-Fastening Shoes</h4>
+                        <div class="rating">
+                            <i class="fa fa-star" ></i>
+                            <i class="fa fa-star" ></i>
+                            <i class="fa fa-star" ></i>
+                            <i class="fa fa-star-o" ></i>
+                            <i class="fa fa-star-o" ></i>
+                        </div>
+                        <p>$48.00</p>
+                    </div>  
+                </div>
+        </div>
+
+        <!----------------------------------footer------------------------------------->
+        <div class ="footer">
+        <div class="container">
+            
+            <div class="row">
+                <div class="footer-col-1">
+                    <h3>Download Our App</h3>
+                    <p>Download App for Android and ios mobile phone.</p>
+                    <div class="app-logo">
+                        <img src="images/play-store.png" alt="">
+                        <img src="images/app-store.png" alt="">
+                    </div>
+                </div>
+                <div class="footer-col-2">
+                    <img src="images/logo-white.png">
+                    <p>Our Purpose Is To Sustainably Make the Pleasure and Benefits of Sports Accessible to the Many.</p>
+                </div>
+                <div class="footer-col-3">
+                    <h3>Useful Links</h3>
+                   <ul>
+                       <li>Coupons</li>
+                       <li>Blog Post</li>
+                       <li>Return Policy</li>
+                       <li>Join Affiliate</li>
+                    </ul>
+                </div>
+                <div class="footer-col-4">
+                    <h3>Follow us</h3>
+                   <ul>
+                       <li>Facebook</li>
+                       <li>Twitter</li>
+                       <li>Instagram</li>
+                       <li>Youtube</li>
+                    </ul>
+                </div>
+                
+            </div>
+            
+            <hr><!--horizontal line-->
+            <p class="copyright">Copyright 2021 - Apurba Kr. Pramanik</p>
+            
+        </div>
+    </div>
+        
+        
+        <!-----------------------------------js for toggle menu----------------------------------------------->
+        <script>
+            var menuItems=document.getElementById("MenuItems");
+            
+            MenuItems.style.maxHeight="0px";
+            function menutoggle(){
+                if(MenuItems.style.maxHeight == "0px"){
+                    MenuItems.style.maxHeight="200px";
+                }
+                else{
+                    MenuItems.style.maxHeight="0px";
+                }
+            }
+        </script>
+        
+        <!-----------------------js for product gallery-------------------->
+        
+        <script>
+            var productImg=document.getElementById("productImg");
+            var smallImg=document.getElementsByClassName("small-img");
+            
+            smallImg[0].onclick=function(){
+                productImg.src=smallImg[0].src;
+            }
+             smallImg[1].onclick=function(){
+                productImg.src=smallImg[1].src;
+            }
+              smallImg[2].onclick=function(){
+                productImg.src=smallImg[2].src;
+            }
+               smallImg[3].onclick=function(){
+                productImg.src=smallImg[3].src;
+            }
+            
+            
+        </script>
+    </body>
+</html>
