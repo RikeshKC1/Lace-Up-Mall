@@ -1,0 +1,32 @@
+.box{
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+.background{
+   background-image: url("/public/allshoes.png");
+   background-repeat: no-repeat;
+   background-size: cover;
+}
+.model{
+   position: absolute;
+   top: 10%;
+   left: 20%;
+   right: 20%;
+  background-color:whitesmoke;
+}
+ 
+.xbtn{
+    position: absolute;
+    top: 5%;
+    right: 3%;
+}
+
+.blur{
+    filter: blur(5px);
+    visibility: hidden;
+}
+.unblur{
+  
+}
+.addpic{
+    width: 150px;
+}
