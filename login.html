@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login Page</title>
+    <style>
+        body {
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+            background-image: url("images/login.jpg");
+            display: flex;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .container {
+            max-width: 400px;
+            background-size: cover;
+            background-position: center;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        
+        .container h2 {
+            text-align: center;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            border-radius: 4px;
+            display: flex;
+            border: 1px solid #ccc;
+        }
+        
+        .form-group input[type="submit"] {
+            position: center;
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+        
+        .form-group input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" required>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Login">
+            </div>
+            <div class="form-group">
+                <label for="rememberMe">
+                    <input type="checkbox" id="rememberMe"> Remember Me
+                </label>
+            </div>
+            <div class="form-group">
+                <a href="#" id="forgotPasswordLink">Forgot Password?</a>
+            </div>
+        </form>
+        <div class="form-group">
+            <p>Don't have an account? <a href="register.html">Register</a>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+
+            var email = document.getElementById("email").value;
+            var password = document.getElementById("password").value;
+
+
+            if (email.trim() === "" || password.trim() === "") {
+                alert("Please fill in all fields");
+                return;
+            }
+
+
+            document.getElementById("email").value = "";
+            document.getElementById("password").value = "";
+
+            alert("Login successful!");
+        });
+
+        document.getElementById("registerLink").addEventListener("click", function(event) {
+            event.preventDefault();
+
+
+            alert("Register link clicked!");
+        });
+
+        document.getElementById("forgotPasswordLink").addEventListener("click", function(event) {
+            event.preventDefault();
+
+
+            alert("Forgot Password link clicked!");
+        });
+    </script>
+</body>
+
+</html>

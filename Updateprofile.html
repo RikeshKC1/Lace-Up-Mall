@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Profile</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: rgb(249, 233, 210);
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        
+        .container-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .container {
+            position: center;
+            width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background: url("images/handshoe.jpg") center center no-repeat;
+            background-size: cover;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            border-radius: 10px;
+        }
+        
+        .container h2 {
+            text-align: center;
+        }
+        
+        .form-group {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .form-group label {
+            display: flex;
+            margin-bottom: 5px;
+        }
+        
+        .form-group input {
+            width: 100%;
+            margin-right: 5%;
+            padding: 8px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+        
+        .form-group input[type="submit"] {
+            width: 30%;
+            padding: 10px;
+            position: center;
+            border-radius: 9px;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+            margin: 0 auto;
+            display: 0 flex;
+        }
+        
+        .form-group input[type="submit"]:hover {
+            position: center;
+            background-color: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Update Profile</h2>
+        <form id="updateForm">
+            <div class="form-group">
+                <input type="text" id="FirstName" placeholder="First Name" required>
+                <input type="text" id="LastName" placeholder="LastName" required>
+
+            </div>
+            <br />
+
+
+            <div class="form-group">
+                <input type="text" id="UserName" placeholder="UserName" required>
+            </div>
+
+            <div class="form-group">
+                <input type="text" id="Email" placeholder="Email" required>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Update">
+            </div>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("updateForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent the form from submitting
+
+            // Get form values
+            var FirstName = document.getElementById("FirstName").value;
+            var LastName = document.getElementById("LastName").value;
+            var Username = document.getElementById("Username").value;
+            var email = document.getElementById("email").value;
+
+            // Perform form validation
+            if (name.trim() === "" || email.trim() === "") {
+                alert("Please fill in all fields");
+                return;
+            }
+
+            // Perform further processing (e.g., sending data to server, etc.)
+            // ...
+
+            // Clear form fields
+            document.getElementById("FirstName").value = "";
+            document.getElementById("LastName").value = "";
+            document.getElementById("UserName").value = "";
+            document.getElementById("email").value = "";
+
+            alert("Profile updated successfully!");
+        });
+    </script>
+</body>
+
+</html>
