@@ -72,5 +72,47 @@
         </table>
     </div>
     
+
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+        const endpointData = [
+          { endpoint: '/api/products' },
+          { endpoint: '/api/orders' },
+          { endpoint: '/api/users' },
+          { endpoint: '/api/payments' }
+        ];
+      
+        const responseTable = document.getElementById('responseTable');
+      
+        endpointData.forEach(endpoint => {
+          const status = generateRandomStatus();
+          const responseTime = generateRandomResponseTime();
+      
+          const row = document.createElement('tr');
+          row.innerHTML = `
+            <td>${endpoint.endpoint}</td>
+            <td class="${status.class}">${status.text}</td>
+            <td>${responseTime} ms</td>
+          `;
+      
+          responseTable.appendChild(row);
+        });
+        });
+      
+        function generateRandomStatus() {
+        const randomNum = Math.random();
+      
+        if (randomNum < 0.8) {
+          return { class: 'success', text: '200 OK' };
+        } else {
+          return { class: 'warning', text: '500 Internal Server Error' };
+        }
+        }
+      
+      function generateRandomResponseTime() {
+        return Math.floor(Math.random() * 500) + 50;
+    }
+      
+    </script>  
 </body>
 </html>
