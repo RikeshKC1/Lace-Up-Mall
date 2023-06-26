@@ -30,3 +30,11 @@
 .addpic{
     width: 150px;
 }
+.searchInput{
+    background-image: url('../public/search2.png');
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    padding-left: 40px;
+    background-size: 25px;
+
+}
