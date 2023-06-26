@@ -60,14 +60,49 @@ function Update() {
      <div className='d-flex justify-content-between'>      <span className='bi bi-pie-chart-fill text-primary fs-4'></span>
      <Image src={chart} height={60} width={60}></Image>
      </div>
-     <div className='row d-flex flex-row'> <p className='text-black-50 d-block'>Total Sales</p> 
-     <p className='text-success d-block'> 12.24%</p> 
+     <div className='d-flex flex-row justify-content-between'> 
+     <div><p className='text-black-50 '>Total Sales</p> </div>
+     <div><p className='text-success '><span className='bi bi-arrow-bar-up'></span> 12.24%</p> </div>
      </div>
      <h4><b>$ 1,240,500</b></h4>
     </div>
-    <div className={`${styles.box} my-4`} style={{height:'150px',width:'250px'}}></div>
-    <div className={`${styles.box} my-4`} style={{height:'150px',width:'250px'}}></div>
-    <div className={`${styles.box} my-4`} style={{height:'150px',width:'250px'}}></div>
+
+
+    <div className={`${styles.box} my-4`} style={{height:'200px',width:'250px'}}>
+     <div className='d-flex justify-content-between'>      <span className='bi bi-eye text-danger fs-4'></span>
+     <Image src={chart} height={60} width={60}></Image>
+     </div>
+     <div className='d-flex flex-row justify-content-between'> 
+     <div><p className='text-black-50 '>Total Sales</p> </div>
+     <div><p className='text-success '><span className='bi bi-arrow-bar-up'></span> 12.24%</p> </div>
+     </div>
+     <h4><b>$ 1,240,500</b></h4>
+    </div>
+
+
+    <div className={`${styles.box} my-4`} style={{height:'200px',width:'250px'}}>
+     <div className='d-flex justify-content-between'>      <span className='bi bi-pie-chart-fill text-primary fs-4'></span>
+     <Image src={chart} height={60} width={60}></Image>
+     </div>
+     <div className='d-flex flex-row justify-content-between'> 
+     <div><p className='text-black-50 '>Total Sales</p> </div>
+     <div><p className='text-success '><span className='bi bi-arrow-bar-up'></span> 12.24%</p> </div>
+     </div>
+     <h4><b>$ 1,240,500</b></h4>
+    </div>
+
+
+    <div className={`${styles.box} my-4`} style={{height:'200px',width:'250px'}}>
+     <div className='d-flex justify-content-between'>      <span className='bi bi-pie-chart-fill text-primary fs-4'></span>
+     <Image src={chart} height={60} width={60}></Image>
+     </div>
+     <div className='d-flex flex-row justify-content-between'> 
+     <div><p className='text-black-50 '>Total Sales</p> </div>
+     <div><p className='text-success '><span className='bi bi-arrow-bar-up'></span> 12.24%</p> </div>
+     </div>
+     <h4><b>$ 1,240,500</b></h4>
+    </div>
+    
    
 </div>
 
