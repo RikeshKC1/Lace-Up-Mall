@@ -1,5 +1,8 @@
 import React, { useRef, useState } from 'react'
 import styles from '../styles/Update.module.css';
+import Image from 'next/image';
+import chart from '../public/chart.png';
+
 function Update() {
    const getfile=useRef();
    const handleFile=(e)=>{
@@ -52,9 +55,24 @@ function Update() {
 
 
 
-
+<div className={`row  d-flex justify-content-around`}>
+    <div className={`${styles.box} my-4`} style={{height:'200px',width:'250px'}}>
+     <div className='d-flex justify-content-between'>      <span className='bi bi-pie-chart-fill text-primary fs-4'></span>
+     <Image src={chart} height={60} width={60}></Image>
+     </div>
+     <div className='row d-flex flex-row'> <p className='text-black-50 d-block'>Total Sales</p> 
+     <p className='text-success d-block'> 12.24%</p> 
+     </div>
+     <h4><b>$ 1,240,500</b></h4>
+    </div>
+    <div className={`${styles.box} my-4`} style={{height:'150px',width:'250px'}}></div>
+    <div className={`${styles.box} my-4`} style={{height:'150px',width:'250px'}}></div>
+    <div className={`${styles.box} my-4`} style={{height:'150px',width:'250px'}}></div>
+   
+</div>
 
         <div className={` ${add?styles.blur:''} row d-flex align-items-center justify-content-around`} style={{height:'100vh',width:'100%'}}>
+   
             <div className={`${styles.box} d-flex  flex-column align-items-center justify-content-around rounded`} style={{height:'200px',width:'200px'}}>
             <span className='badge bg-secondary'><b>DashBoard</b></span>
                <button className='btn btn-outline-danger'><span className='bi bi-clipboard2-check'> DashBoard</span></button>
