@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Shoe Store Interactive Question</title>
+    <link rel="stylesheet" href="question.css">
+    <script src="question.js"></script>
+</head>
+</style>
+
+<body>
+    <div class="question-container">
+        <h2>Which type of shoes do you prefer for your outdoor adventures?</h2>
+        <form id="shoe-preference-form">
+            <label>
+                <input type="radio" name="shoe-preference" value="Nike">
+                Nike
+                <ul class="category-list">
+                    <li><input type="checkbox" name="nike-category" value="Running">Running</li>
+                    <li><input type="checkbox" name="nike-category" value="Hiking">Hiking</li>
+                    <li><input type="checkbox" name="nike-category" value="Basketball">Basketball</li>
+                </ul>
+            </label>
+            <br>
+            <label>
+                <input type="radio" name="shoe-preference" value="Erek">
+                Erek
+                <ul class="category-list">
+                    <li><input type="checkbox" name="erek-category" value="Running">Running</li>
+                    <li><input type="checkbox" name="erek-category" value="Walking">Walking</li>
+                    <li><input type="checkbox" name="erek-category" value="Tennis">Tennis</li>
+                </ul>
+            </label>
+            <br>
+            <label>
+                <input type="radio" name="shoe-preference" value="Peak">
+                Peak
+                <ul class="category-list">
+                    <li><input type="checkbox" name="peak-category" value="Running">Running</li>
+                    <li><input type="checkbox" name="peak-category" value="Trail Running">Trail Running</li>
+                    <li><input type="checkbox" name="peak-category" value="Cross Training">Cross Training</li>
+                </ul>
+            </label>
+            <br>
+            <label>
+                <input type="radio" name="shoe-preference" value="Adidas">
+                Adidas
+                <ul class="category-list">
+                    <li><input type="checkbox" name="adidas-category" value="Soccer">Soccer</li>
+                    <li><input type="checkbox" name="adidas-category" value="Golf">Golf</li>
+                    <li><input type="checkbox" name="adidas-category" value="Skateboarding">Skateboarding</li>
+                </ul>
+            </label>
+            <br>
+            <button type="button" onclick="submitForm()">Search</button>
+        </form>
+    </div>
+</body>
+
+</html>

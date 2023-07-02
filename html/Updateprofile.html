@@ -105,24 +105,20 @@
 
     <script>
         document.getElementById("updateForm").addEventListener("submit", function(event) {
-            event.preventDefault(); // Prevent the form from submitting
+            event.preventDefault();
 
-            // Get form values
+
             var FirstName = document.getElementById("FirstName").value;
             var LastName = document.getElementById("LastName").value;
             var Username = document.getElementById("Username").value;
             var email = document.getElementById("email").value;
 
-            // Perform form validation
+
             if (name.trim() === "" || email.trim() === "") {
                 alert("Please fill in all fields");
                 return;
             }
 
-            // Perform further processing (e.g., sending data to server, etc.)
-            // ...
-
-            // Clear form fields
             document.getElementById("FirstName").value = "";
             document.getElementById("LastName").value = "";
             document.getElementById("UserName").value = "";
