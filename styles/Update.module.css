@@ -5,6 +5,8 @@
    background-image: url("/public/allshoes.png");
    background-repeat: no-repeat;
    background-size: cover;
+   background-color: #f1f2f6;
+
 }
 .model{
    position: absolute;
@@ -38,3 +40,15 @@
     background-size: 25px;
 
 }
+.profilediv{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    border: 3px solid white;
+    overflow: hidden;
+
+}
+
+.mybackground{
+    
+  }

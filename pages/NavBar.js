@@ -14,13 +14,13 @@ function NavBar() {
       {/* <Image src={laceuplogo} height={50} width={220}></Image> */}
       <h3 className='text-white'><b>Lace up</b></h3>
     </div>
-    <div className='col-sm-3 d-md-flex d-sm-none d-none align-items-center justify-content-around'>
+    <div className='col-sm-3 d-md-flex d-sm-none d-none align-items-center justify-content-md-around'>
       <Link passHref legacyBehavior href='/' ><a className={`${styles.whitelink}`}>Home</a></Link>
       <Link passHref legacyBehavior href='/' ><a className={`${styles.whitelink}`}>Cart</a></Link>
       <Link passHref legacyBehavior href='/' ><a className={`${styles.whitelink}`}>Notification</a></Link>
       
     </div>
-    <div className='col-sm-6 d-flex flex-row align-items-center justify-content-sm-around'>
+    <div className='col-sm-6 d-flex flex-row align-items-center justify-content-around'>
       
   <div className='d-sm-none d-none d-md-block'><input className='form-control' placeholder='search shoes'></input></div>
       
