@@ -1,14 +1,6 @@
 import React, { useRef, useState } from 'react'
 import styles from '../styles/Update.module.css';
-import Image from 'next/image';
-import chart from '../public/chart.png';
-import users from '../public/users.png';
-import money from '../public/money.png';
-import face from '../public/face.jpg';
-import report from '../public/report.png';
-import { CircularProgressbar } from 'react-circular-progressbar';
-
-function Update() {
+  function Update(){
    const getfile=useRef();
    const handleFile=(e)=>{
           const selectedFile=e.target.files[0];
@@ -22,103 +14,9 @@ function Update() {
    const handleCut=()=>{
       setAdd(false);
    }
-  return (
-
-    <div className={`${styles.background} container-fluid`}>
-
-      <div className='row'>
-         <div className='col-sm-3 '>
-            <h3 className='text-black-50'><b>LACE UP DashBoard</b></h3>
-         </div>
-         <div className='col-sm-3 d-flex align-items-center'>
-            <input className={`${styles.searchInput} form-control`} placeholder='Search' ></input>
-         </div>
-         <div className='col-sm-6 d-flex align-items-center justify-content-md-around justify-content-between'>
-            <div><button className='btn btn-outline-secondary btn-sm'>Shoes curd</button></div>
-            <div  className='border' >
-              <select className='form-select'>
-               <option>This Year</option>
-               <option selected>This Month</option>
-               <option>This Week</option>
-               <option>3days ago</option>
-              </select>
-             
-            </div>
-            <div className={`${styles.profilediv}`} style={{height:'50px',width:'50px'}} >
-               <Image src={face} height={50} width={50}></Image>
-              </div>
-         </div>
-      </div>
-
-
-
-<div className={`row d-flex justify-content-around my-4`}>
-    <div className={`${styles.box} my-4 bg-white`} style={{height:'150px',width:'250px'}}>
-     <div className='d-flex justify-content-between'>      <span className='bi bi-pie-chart-fill text-primary fs-4'></span>
-     <Image src={chart} height={60} width={60}></Image>
-     </div>
-     <div className='d-flex flex-row justify-content-between'> 
-     <div><p className='text-black-50 '>Total Sales</p> </div>
-     <div><p className='text-success '><span className='bi bi-arrow-bar-up'></span> 12.24%</p> </div>
-     </div>
-     <h4><b>10000</b></h4>
-    </div>
-
-
-    <div className={`${styles.box} my-4 bg-white`} style={{height:'150px',width:'250px'}}>
-     <div className='d-flex justify-content-between'>      <span className='bi bi-eye text-danger fs-4'></span>
-     <Image src={users} height={60} width={60}></Image>
-     </div>
-     <div className='d-flex flex-row justify-content-between'> 
-     <div><p className='text-black-50 '>Total Visitor</p> </div>
-     <div><p className='text-success '><span className='bi bi-arrow-bar-up'></span> 12.24%</p> </div>
-     </div>
-     <h4><b>10000</b></h4>
-    </div>
-
-
-    <div className={`${styles.box} my-4 bg-white`} style={{height:'150px',width:'250px'}}>
-     <div className='d-flex justify-content-between'>     
-      <span className='bi bi-cash-coin text-success fs-4'></span>
-     <Image src={money} height={60} width={60}></Image>
-     </div>
-     <div className='d-flex flex-row justify-content-between'> 
-     <div><p className='text-black-50 '>Total Revenue</p> </div>
-     <div><p className='text-success '><span className='bi bi-arrow-bar-up'></span> 12.24%</p> </div>
-     </div>
-     <h4><b>$ 1,240,500</b></h4>
-    </div>
-
-
-    <div className={`${styles.box} my-4 bg-white`} style={{height:'150px',width:'250px'}}>
-     <div className='d-flex justify-content-between'> <span className='bi bi-pie-chart-fill text-primary fs-4'></span>
-     <Image src={chart} height={60} width={60}></Image>
-     </div>
-     <div className='d-flex flex-row justify-content-around'> 
-     <div><p className='text-black-50 '>Total Sales</p> </div>
-     <div><p className='text-success '><span className='bi bi-arrow-bar-up'></span> 12.24%</p> </div>
-     </div>
-     <h4><b>$ 1,240,500</b></h4>
-    </div>
+    return (
     
-   
-</div>
-
-
-<div className='row d-flex justify-content-around'>
-
-    <div className='col-sm-6 border'>
-          <div className='row'>
-
-          </div>
-    </div>
-    <div className='col-sm-4 border'>
-     <div style={{width:'200px'}}>
-     <CircularProgressbar  value={75} text='75%'></CircularProgressbar>
-     </div>
-    </div>
-</div>
-
+    <div className="container-fluid">
         <div className={` ${add?styles.blur:''} row d-flex align-items-center justify-content-around`} style={{height:'100vh',width:'100%'}}>
    
             <div className={`${styles.box} d-flex  flex-column align-items-center justify-content-around rounded`} style={{height:'200px',width:'200px'}}>
