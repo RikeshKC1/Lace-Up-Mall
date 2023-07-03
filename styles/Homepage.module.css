@@ -39,3 +39,50 @@
 .shoesShadow{
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
+.searchInput{
+  background-image: url('../public/search2.png');
+  background-repeat: no-repeat;
+  background-position: 10px center;
+  padding-left: 40px;
+  background-size: 25px;
+
+}
+.backgroundImage{
+  background-image: url('../public/back1.png');
+  background-repeat: no-repeat;
+  background-size: 180px;
+  background-position-x: 10px;
+  background-position-y:center ;
+
+}
+
+.newImage{
+  background-image: url('../public/new.png');
+  background-repeat: no-repeat;
+  background-size: 180px;
+  background-position-x: 280px;
+  background-position-y: 500px;
+}
+
+.sidebar{
+  position: fixed;
+  top: 37px;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.activeLink{
+  background-color: #007bff;
+  color: white;
+  display: flex;
+  justify-content: space-around;
+}
+.link{
+color: white;
+display: flex;
+justify-content: space-around;
+
+}
+.link:hover{
+
+}

@@ -1,28 +1,36 @@
-import React from 'react'
+import React, { useState } from 'react'
 import face from '../public/face.jpg';
 import styles from '../styles/Homepage.module.css';
-import laceuplogo from '../public/laceuplogo.png';
 import Link from 'next/link'
 import Image from 'next/image'
+import { useRouter } from 'next/router';
 function NavBar() {
+  const router=useRouter();
+  const [sidebar,setSidebar]=useState(false);
+  const handleSideBar=()=>{
+    setSidebar(!sidebar);
+  }
+  
   return (
     <div className={`${styles.nav} row fixed-top bg-dark `}>
     <div className='col-sm-3 d-flex align-items-center col-12 justify-content-start'>
-    <button className='btn btn-dark d-block  d-md-none'>
+    <button className='btn btn-dark d-block  d-md-none' onClick={handleSideBar}>
         <span className='bi bi-list'></span>
       </button>
       {/* <Image src={laceuplogo} height={50} width={220}></Image> */}
       <h3 className='text-white'><b>Lace up</b></h3>
     </div>
-    <div className='col-sm-3 d-md-flex d-sm-none d-none align-items-center justify-content-md-around'>
-      <Link passHref legacyBehavior href='/' ><a className={`${styles.whitelink}`}>Home</a></Link>
-      <Link passHref legacyBehavior href='/' ><a className={`${styles.whitelink}`}>Cart</a></Link>
-      <Link passHref legacyBehavior href='/' ><a className={`${styles.whitelink}`}>Notification</a></Link>
+    <div className='col-sm-4 d-md-flex d-sm-none d-none align-items-center justify-content-md-around'>
+      <button className={router.pathname==='/Home'?'btn btn-primary':'btn btn-outline-secondary'}><span className='bi bi-house'></span>  </button>
+      <button className={router.pathname==='/Notification'?'btn btn-primary':'btn btn-outline-secondary'}><span className='bi bi-bell'></span></button>
+      <button className={router.pathname==='/Cart'?'btn btn-primary':'btn btn-outline-secondary'}><span className='bi bi-cart'></span></button>
+      <button className={router.pathname==='/Admin'?'btn btn-primary':'btn btn-outline-secondary'}><span className='bi bi-person-fill-gear'></span></button>
+     
       
     </div>
-    <div className='col-sm-6 d-flex flex-row align-items-center justify-content-around'>
+    <div className='col-sm-5 d-flex flex-row align-items-center justify-content-around'>
       
-  <div className='d-sm-none d-none d-md-block'><input className='form-control' placeholder='search shoes'></input></div>
+  <div className='d-sm-none d-none d-md-block'><input className={`${styles.searchInput} form-control`} placeholder='search shoes'></input></div>
       
       <div className={`${styles.profilediv} d-none d-sm-none d-md-block`}>
         <Image src={face} height={50} width={50} alt='profile picture'></Image>
@@ -30,6 +38,58 @@ function NavBar() {
       </div>
 
     </div>
+   {
+     sidebar? <div className={`${styles.sidebar} row bg-dark  `} style={{height:'100vh',width:'160px'}}>
+
+     <div style={{width:'100%',height:'40px'}} className={router.pathname==='/Home'? styles.activeLink : styles.link}>
+     <div> <span className='bi bi-house fs-4'></span></div>
+     <div><p className='fs-4'>Home</p></div>
+     
+     </div> 
+     
+     <div style={{width:'100%',height:'40px'}} className={router.pathname==='/Notification'? styles.activeLink : styles.link}>
+     <div> <span className='bi bi-bell fs-4'></span></div>
+     <div><p className='fs-4'>Notif</p></div>
+     
+     </div> 
+     
+     <div style={{width:'100%',height:'40px'}} className={router.pathname==='/Cart'? styles.activeLink : styles.link}>
+     <div> <span className='bi bi-bag fs-3'></span></div>
+     <div><p className='fs-4'>Cart</p></div>
+     
+     </div> 
+     
+     
+     <div style={{width:'100%',height:'40px'}} className={router.pathname==='/Admin'? styles.activeLink : styles.link}>
+     <div> <span className='bi bi-person-fill-gear fs-3'></span></div>
+     <div><p className='fs-4'>Admin</p></div>
+     
+     </div> 
+     
+     <div style={{width:'100%',height:'50px'}} className='d-flex justify-content-around  overflow-hidden'>
+           <div className={`${styles.profilediv} `}>
+               
+           <Image src={face} height={50} width={50} alt='profile picture'></Image>
+     
+           </div></div>
+     
+           <div style={{width:'100%',height:'40px'}} className='text-white d-flex justify-content-around'>
+     <div> <span className='bi bi-box-arrow-right fs-3'></span></div>
+     <div><p className='fs-4'>Logout</p></div>
+     
+     </div> 
+     
+     
+     
+     
+     
+          
+     </div> : ''
+
+   }
+
+
+   
   </div>
   )
 }

@@ -25,10 +25,11 @@ function Dashboard(){
          <div className='col-sm-6 d-flex align-items-center justify-content-md-around justify-content-between'>
 
            <div> 
-            <Link href='' passHref legacyBehavior ><a className='text-decoration-none'>Dashboard</a></Link>
-            <Link href='' passHref legacyBehavior ><a className='text-decoration-none mx-2'>Crud</a></Link>
+            <Link href='/dashboard' passHref legacyBehavior ><a className={ router.pathname==='/Dashboard'?styles.activelink:styles.link}>Dashboard</a></Link>
+            <Link href='' passHref legacyBehavior ><a className={ router.pathname==='/Crud'?styles.activelink:styles.link}>Crud</a></Link>
            </div>
-            <div  className='border' >
+
+            <div  className='border'>
               <select className='form-select'>
                <option>This Year</option>
                <option selected>This Month</option>
@@ -47,7 +48,7 @@ function Dashboard(){
 
 <div className={`row d-flex justify-content-around my-4`}>
     <div className={`${styles.box} my-4 bg-white`} style={{height:'150px',width:'250px'}}>
-     <div className='d-flex justify-content-between'>      <span className='bi bi-pie-chart-fill text-primary fs-4'></span>
+     <div className='d-flex justify-content-between'>      <span className='bi bi-pie-chart text-primary fs-4'></span>
      <Image src={chart} height={60} width={60}></Image>
      </div>
      <div className='d-flex flex-row justify-content-between'> 
@@ -101,13 +102,13 @@ function Dashboard(){
 <div className='row d-flex justify-content-around'>
  
     <div className='col-sm-6'>
-        <p className='text-black-50'>Sale Table</p>
+        <p className='text-black-50'>Sales Table</p>
          <table className='table table-striped'>
             <thead>
                 <tr>
                     <th scope='col'>BrandName</th>
-                    <th scope='col'>Sale Rate</th>
-                    <th scope='col'>Sale Amount</th>
+                    <th scope='col'>Sales Rate</th>
+                    <th scope='col'>Sales Revenue</th>
                 </tr>
             </thead>
             <tbody>
@@ -147,7 +148,7 @@ function Dashboard(){
     <div className='col-sm-4 bg-white'>
       
     <div className='row bg-white'>
-    <p className='text-secondary'>Sale Percentage</p>
+    <p className='text-secondary'>Sales Rate</p>
            
 <div className='border'>
     <p className='text-center'><b>Adidas</b></p> 
