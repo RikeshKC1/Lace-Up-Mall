@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import React from 'react'
 import NavBar from './NavBar'
+import styles from '../styles/Cart.module.css';
 
 function Cart() {
   return (

@@ -35,40 +35,7 @@ function Home() {
       <div className='container-fluid'>
         <NavBar/>
         <div className={`${styles.backgroundImage} row d-flex flex-column flex-md-row`} style={{height:'100vh'}}>
-        <div className={`${styles.sidebar} row bg-dark d-md-none `} style={{height:'100vh',width:'160px'}}>
 
-          <div style={{width:'100%',height:'40px'}} className='text-white d-flex justify-content-around'>
-          <div> <span className='bi bi-house fs-4'></span></div>
-          <div><p className='fs-4'>Home</p></div>
-
-          </div> 
-
-          <div style={{width:'100%',height:'40px'}} className='text-white d-flex justify-content-around'>
-          <div> <span className='bi bi-bell fs-4'></span></div>
-          <div><p className='fs-4'>Notif</p></div>
-
-          </div> 
-
-          <div style={{width:'100%',height:'40px'}} className='text-white d-flex justify-content-around'>
-          <div> <span className='bi bi-bag fs-3'></span></div>
-          <div><p className='fs-4'>Cart</p></div>
-
-          </div> 
-
-
-          <div style={{width:'100%',height:'40px'}} className='text-white d-flex justify-content-around'>
-          <div> <span className='bi bi-person-fill-gear fs-3'></span></div>
-          <div><p className='fs-4'>Admin</p></div>
-
-          </div> 
-
-          <div style={{width:'100%',height:'40px'}} className='text-white d-flex justify-content-around'>
-          <div> <span className='bi bi-person-fill-gear fs-3'></span></div>
-          <div><p className='fs-4'>Admin</p></div>
-
-          </div> 
-               
-        </div>
           <div className='col-md-6 col-12 d-flex justify-content-center align-items-center'>
            <div className='row'>
            <div className={`${styles.cardShadow} card w-100 border`}>

@@ -7,21 +7,32 @@ import { useRouter } from 'next/router';
 function NavBar() {
   const router=useRouter();
   const [sidebar,setSidebar]=useState(false);
-  const handleSideBar=()=>{
-    setSidebar(!sidebar);
+  const openSideBar=()=>{
+    setSidebar(true);
+  }
+  const closeSideBar=()=>{
+    setSidebar(false);
   }
   
   return (
-    <div className={`${styles.nav} row fixed-top bg-dark `}>
+    <div className={`${styles.nav} row fixed-top bg-dark`}>
     <div className='col-sm-3 d-flex align-items-center col-12 justify-content-start'>
-    <button className='btn btn-dark d-block  d-md-none' onClick={handleSideBar}>
+      {
+        sidebar===false?  <button className='btn btn-dark d-block  d-md-none' onClick={openSideBar}>
         <span className='bi bi-list'></span>
-      </button>
+      </button> : ''
+      }
+
+     {
+      sidebar===true? <button className='btn btn-dark d-block d-md-none' onClick={closeSideBar}>
+      <span className='bi bi-x'></span>
+    </button>:''
+     }
       {/* <Image src={laceuplogo} height={50} width={220}></Image> */}
       <h3 className='text-white'><b>Lace up</b></h3>
     </div>
     <div className='col-sm-4 d-md-flex d-sm-none d-none align-items-center justify-content-md-around'>
-      <button className={router.pathname==='/Home'?'btn btn-primary':'btn btn-outline-secondary'}><span className='bi bi-house'></span>  </button>
+      <button className={router.pathname==='/Home'?'btn btn-primary':'btn btn-outline-secondary'}><Link href='/Home' passHref legacyBehavior><a className='text-white'><span className='bi bi-house'></span></a></Link></button>
       <button className={router.pathname==='/Notification'?'btn btn-primary':'btn btn-outline-secondary'}><span className='bi bi-bell'></span></button>
       <button className={router.pathname==='/Cart'?'btn btn-primary':'btn btn-outline-secondary'}><span className='bi bi-cart'></span></button>
       <button className={router.pathname==='/Admin'?'btn btn-primary':'btn btn-outline-secondary'}><span className='bi bi-person-fill-gear'></span></button>
@@ -38,8 +49,9 @@ function NavBar() {
       </div>
 
     </div>
+
    {
-     sidebar? <div className={`${styles.sidebar} row bg-dark  `} style={{height:'100vh',width:'160px'}}>
+     sidebar ? <div className={`${styles.sidebar} row bg-dark d-flex d-md-none`}>
 
      <div style={{width:'100%',height:'40px'}} className={router.pathname==='/Home'? styles.activeLink : styles.link}>
      <div> <span className='bi bi-house fs-4'></span></div>
@@ -78,10 +90,6 @@ function NavBar() {
      <div><p className='fs-4'>Logout</p></div>
      
      </div> 
-     
-     
-     
-     
      
           
      </div> : ''
