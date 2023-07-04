@@ -3,6 +3,7 @@ import Image from 'next/image'
 import styles from '../styles/Homepage.module.css';
 import { useEffect, useState } from 'react';
 import NavBar from './NavBar';
+import Footer from './Footer';
 
 
 function Home() {
@@ -353,6 +354,8 @@ function Home() {
 
          
         </div>
+
+        <Footer></Footer>
        
         </div>
         
