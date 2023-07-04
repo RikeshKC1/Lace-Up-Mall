@@ -17,10 +17,10 @@ function Cart() {
                <div className='row mt-5'>
                 <h3 className='text-center'><span className='bi bi-bag'> <b>My Cart</b></span></h3>
                </div>
-               <div className='row d-flex flex-column-reverse flex-lg-row'>
+               <div className='row d-flex flex-column-reverse flex-lg-row my-auto'>
                 <div className='col-lg-8 col-12'>
 
-                <div className='row '>
+                <div className='row border'>
                     <div className='col-md-7 d-flex align-items-center'>
                       <Image src='https://cdn-images.farfetch-contents.com/19/49/30/16/19493016_43409810_1000.jpg' alt='shoes' height={200} width={180}></Image>
                       <div className='mx-sm-2'>
@@ -37,7 +37,7 @@ function Cart() {
                         <p>Total</p>
 
                       </div>
-                      <div className=' d-flex justify-content-between'>
+                      <div className='d-flex justify-content-between'>
                         <p>Rs 5000</p>
                         <select className='form-select form-select-sm' style={{height:'40px',width:'100px'}}>
                           <option selected value='1'>1</option>
@@ -53,7 +53,7 @@ function Cart() {
                     </div>
                   </div>
 
-                  <div className='row'>
+                  <div className='row border'>
                     <div className='col-md-7  d-flex align-items-center'>
                       <Image src='https://cdn-images.farfetch-contents.com/19/49/30/16/19493016_43409810_1000.jpg' alt='shoes' height={200} width={180}></Image>
                       <div className='mx-sm-2'>
@@ -86,7 +86,7 @@ function Cart() {
                     </div>
                   </div>
 
-                  <div className='row '>
+                  <div className='row border'>
                     <div className='col-md-7  d-flex align-items-center'>
                       <Image src='https://cdn-images.farfetch-contents.com/19/49/30/16/19493016_43409810_1000.jpg' alt='shoes' height={200} width={180}></Image>
                       <div className='mx-sm-2'>
@@ -120,7 +120,7 @@ function Cart() {
                   </div>
                    
 
-                  <div className='row '>
+                  <div className='row border'>
                     <div className='col-md-7  d-flex align-items-center'>
                       <Image src='https://cdn-images.farfetch-contents.com/19/49/30/16/19493016_43409810_1000.jpg' alt='shoes' height={200} width={180}></Image>
                       <div className='mx-sm-2'>
