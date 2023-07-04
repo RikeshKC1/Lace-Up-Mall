@@ -7,112 +7,112 @@
   <style>
     /* Global Styles */
     body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-      }
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
       
-      .container {
-        max-width: 800px;
-        margin: 0 auto;
-        padding: 20px;
-      }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
       
-      h1 {
-        text-align: center;
-      }
+    h1 {
+      text-align: center;
+    }
       
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      border: 1px solid #ccc;
+    }
+      
+    th, td {
+      padding: 10px;
+      text-align: left;
+    }
+      
+    th {
+      background-color: #f2f2f2;
+      font-weight: bold;
+    }
+      
+    /* Status Styles */
+    td.success {
+      color: green;
+      font-weight: bold;
+    }
+      
+    td.warning {
+      color: red;
+      font-weight: bold;
+    }
+      
+    /* Responsive Styles */
+    @media only screen and (max-width: 600px) {
       table {
-        width: 100%;
-        border-collapse: collapse;
-        margin-top: 20px;
+        font-size: 14px;
       }
       
       th, td {
-        padding: 10px;
-        text-align: left;
+        padding: 5px;
       }
-      
-      th {
-        background-color: #f2f2f2;
-        font-weight: bold;
-      }
-      
-      /* Status Styles */
-      td.success {
-        color: green;
-      }
-      
-      td.warning {
-        color: red;
-      }
-      
-      /* Responsive Styles */
-      @media only screen and (max-width: 600px) {
-        table {
-          font-size: 14px;
-        }
-      
-        th, td {
-          padding: 5px;
-        }
-      }
-     
+    }
   </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Lace Up Response Report</h1>
-        <table id="responseTable">
-          <tr>
-            <th>Endpoint</th>
-            <th>Status</th>
-            <th>Response Time</th>
-          </tr>
-        </table>
-    </div>
-    
-
-    <script>
-        window.addEventListener('DOMContentLoaded', () => {
-        const endpointData = [
-          { endpoint: '/api/products' },
-          { endpoint: '/api/orders' },
-          { endpoint: '/api/users' },
-          { endpoint: '/api/payments' }
-        ];
+  <div class="container">
+    <h1>Lace Up Response Report</h1>
+    <table id="responseTable">
+      <tr>
+        <th>Endpoint</th>
+        <th>Status</th>
+        <th>Response Time</th>
+      </tr>
+    </table>
+  </div>
+  
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      const endpointData = [
+        { endpoint: '/api/products' },
+        { endpoint: '/api/orders' },
+        { endpoint: '/api/users' },
+        { endpoint: '/api/payments' }
+      ];
       
-        const responseTable = document.getElementById('responseTable');
+      const responseTable = document.getElementById('responseTable');
       
-        endpointData.forEach(endpoint => {
-          const status = generateRandomStatus();
-          const responseTime = generateRandomResponseTime();
+      endpointData.forEach(endpoint => {
+        const status = generateRandomStatus();
+        const responseTime = generateRandomResponseTime();
       
-          const row = document.createElement('tr');
-          row.innerHTML = `
-            <td>${endpoint.endpoint}</td>
-            <td class="${status.class}">${status.text}</td>
-            <td>${responseTime} ms</td>
-          `;
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td>${endpoint.endpoint}</td>
+          <td class="${status.class}">${status.text}</td>
+          <td>${responseTime} ms</td>
+        `;
       
-          responseTable.appendChild(row);
-        });
-        });
+        responseTable.appendChild(row);
+      });
+    });
       
-        function generateRandomStatus() {
-        const randomNum = Math.random();
+    function generateRandomStatus() {
+      const randomNum = Math.random();
       
-        if (randomNum < 0.8) {
-          return { class: 'success', text: '200 OK' };
-        } else {
-          return { class: 'warning', text: '500 Internal Server Error' };
-        }
-        }
-      
-      function generateRandomResponseTime() {
-        return Math.floor(Math.random() * 500) + 50;
+      if (randomNum < 0.8) {
+        return { class: 'success', text: '200 OK' };
+      } else {
+        return { class: 'warning', text: '500 Internal Server Error' };
+      }
     }
       
-    </script>  
+    function generateRandomResponseTime() {
+      return Math.floor(Math.random() * 500) + 50;
+    }
+  </script>
 </body>
 </html>
