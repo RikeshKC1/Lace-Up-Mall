@@ -13,6 +13,18 @@ function NavBar() {
   const closeSideBar=()=>{
     setSidebar(false);
   }
+  const redirectHome=()=>{
+      router.push('/Home')
+  }
+  const redirectCart=()=>{
+    router.push('/Cart')
+  }
+  const redirectDashboard=()=>{
+    router.push('/Dashboard')
+  }
+  const redirectProfile=()=>{
+   router.push('/Profile')
+  }
   
   return (
     <div className={`${styles.nav} row fixed-top bg-dark`}>
@@ -32,10 +44,10 @@ function NavBar() {
       <h3 className='text-white'><b>Lace up</b></h3>
     </div>
     <div className='col-sm-4 d-md-flex d-sm-none d-none align-items-center justify-content-md-around'>
-      <button className={router.pathname==='/Home'?'btn btn-primary':'btn btn-outline-secondary'}><Link href='/Home' passHref legacyBehavior><a className='text-white'><span className='bi bi-house'></span></a></Link></button>
-      <button className={router.pathname==='/Notification'?'btn btn-primary':'btn btn-outline-secondary'}><span className='bi bi-bell'></span></button>
-      <button className={router.pathname==='/Cart'?'btn btn-primary':'btn btn-outline-secondary'}><span className='bi bi-cart'></span></button>
-      <button className={router.pathname==='/Admin'?'btn btn-primary':'btn btn-outline-secondary'}><span className='bi bi-person-fill-gear'></span></button>
+      <button className={router.pathname==='/Home'?'btn btn-primary':'btn btn-outline-secondary'} onClick={redirectHome}><Link href='/Home' passHref legacyBehavior><a className='text-white'><span className='bi bi-house'></span></a></Link></button>
+      <button className={router.pathname==='/Notification'?'btn btn-primary':'btn btn-outline-secondary'} ><span className='bi bi-bell'></span></button>
+      <button className={router.pathname==='/Cart'?'btn btn-primary':'btn btn-outline-secondary'} onClick={redirectCart}><span className='bi bi-cart'></span></button>
+      <button className={router.pathname==='/Admin'?'btn btn-primary':'btn btn-outline-secondary'} onClick={redirectDashboard}><span className='bi bi-person-fill-gear'></span></button>
      
       
     </div>
