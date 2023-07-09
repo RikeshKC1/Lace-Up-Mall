@@ -1,7 +1,7 @@
 body {
     font-family: Arial, sans-serif;
     background-color: #c1bb95;
-    display: flex;
+    display: block;
 }
 
 header {
