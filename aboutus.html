@@ -5,35 +5,102 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About Us - Lace Up</title>
   <style>
+    /* styles.css */
 
-    header, section, footer {
-      padding: 20px;
-    }
-    
-    .container {
-      max-width: 800px;
-      margin: 0 auto;
-    }
-    
-    /* Additional styles */
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-    } 
+/* Global Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f5f5f5;
+  color: #333;
+}
 
-    h1, h2 {
-      color: #333;
-    }
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
 
-    footer {
-      background-color: #f4f4f4;
-      text-align: center;
-      font-size: 14px;
-      color: #888;
-      margin-top: 30px;
-      padding: 10px;
-    }
+a {
+  text-decoration: none;
+  color: #333;
+}
+
+/* Header Styles */
+header {
+  background-color: #fff;
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+nav li {
+  margin: 0 10px;
+}
+
+nav a {
+  font-size: 18px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+nav a:hover {
+  color: #FF6347;
+}
+
+nav a.active {
+  color: #FF6347;
+}
+
+/* About Section Styles */
+.about-section {
+  background-color: #fff;
+  padding: 50px 20px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  font-size: 32px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+p {
+  font-size: 18px;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+/* Footer Styles */
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+footer p {
+  margin: 0;
+  font-size: 14px;
+}
+
+footer a {
+  color: #fff;
+  font-weight: bold;
+}
+
+.logo{
+  width: 30px; /* Adjust the width as desired */
+  height: 20px; /* Let the height adjust proportionally */    
+}
 
   </style>
 </head>
@@ -43,7 +110,8 @@
 </header>
 <section id="about">
   <div class="container">
-    <h2>About Us</h2>
+    <img src="https://image-cdn.hypb.st/https%3A%2F%2Fhypebeast.com%2Fimage%2F2020%2F11%2Fair-jordan-4-fire-red-release-date-1.jpg?cbr=1&q=90" alt="logo">
+    <h1>About Us</h1>
     <p>Welcome to Lace Up! We are passionate about shoes and committed to providing you with the best footwear shopping experience.</p>
       <p>At Lace Up, we believe that great shoes not only enhance your style but also offer comfort and durability. That's why we carefully curate a wide range of shoes for men and women from top brands around the world.</p>
       <p>Our team of dedicated professionals is always on the lookout for the latest trends and styles, ensuring that you have access to the most fashionable and high-quality shoes in the market.</p>
@@ -55,6 +123,14 @@
     <p>&copy; 2023 Lace Up. All rights reserved.</p>
   </footer>
   
-  <script src="script.js"></script>
+  <script src="script.js">
+    // Get the current year
+const currentYear = new Date().getFullYear();
+
+// Update the footer with the current year
+const footer = document.querySelector('footer');
+footer.innerHTML = `<p>&copy; ${currentYear} Lace Up. All rights reserved.</p>`;
+
+  </script>
 </body>
 </html>
