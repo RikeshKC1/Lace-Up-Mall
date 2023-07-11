@@ -1,14 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Delete Account</title>
+  <title>Delete Account</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
-    <div>
-    <button>Delete Account</button>
-    </div>
-    
+  <div class="container">
+    <h2>Delete Account</h2>
+    <form id="deleteForm">
+      <label for="username">Username</label>
+      <input type="text" id="username" name="username">
+      
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password">
+      
+      <button type="submit">Delete Account</button>
+    </form>
+  </div>
+  
+  <script src="script.js"></script>
 </body>
 </html>
