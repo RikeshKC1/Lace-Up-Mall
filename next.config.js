@@ -7,6 +7,7 @@ const nextConfig = {
 module.exports = nextConfig
 module.exports = {
   images: {
-    domains: ['cdn-images.farfetch-contents.com'],
+    domains: ['cdn-images.farfetch-contents.com','localhost'],
+   
   },
 };

@@ -1,10 +1,11 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import face from '../public/face.jpg';
 import styles from '../styles/Homepage.module.css';
 import Link from 'next/link'
 import Image from 'next/image'
 import { useRouter } from 'next/router';
 function NavBar() {
+  
   const router=useRouter();
   const [sidebar,setSidebar]=useState(false);
   const openSideBar=()=>{
@@ -25,8 +26,18 @@ function NavBar() {
   const redirectProfile=()=>{
    router.push('/Profile')
   }
+  const [profileDropDown,setProfileDropDown]=useState(false);
+  const handleProfileDropDown=()=>{
+             console.log(profileDropDown)
+             setProfileDropDown(!profileDropDown)
+  }
+  const[searchlist,setSearchList]=useState(false);
+  const handleSearchList=()=>{
+      setSearchList(!searchlist)
+  }
   
   return (
+    <>
     <div className={`${styles.nav} row fixed-top bg-dark`}>
     <div className='col-sm-3 d-flex align-items-center col-12 justify-content-start'>
       {
@@ -48,18 +59,23 @@ function NavBar() {
       <button className={router.pathname==='/Notification'?'btn btn-primary':'btn btn-outline-secondary'} ><span className='bi bi-bell'></span></button>
       <button className={router.pathname==='/Cart'?'btn btn-primary':'btn btn-outline-secondary'} onClick={redirectCart}><span className='bi bi-cart'></span></button>
       <button className={router.pathname==='/Admin'?'btn btn-primary':'btn btn-outline-secondary'} onClick={redirectDashboard}><span className='bi bi-person-fill-gear'></span></button>
-     
+      
       
     </div>
     <div className='col-sm-5 d-flex flex-row align-items-center justify-content-around'>
       
-  <div className='d-sm-none d-none d-md-block'><input className={`${styles.searchInput} form-control`} placeholder='search shoes'></input></div>
+  <div className='d-sm-none d-none d-md-block'><input className={`${styles.searchInput} form-control`} placeholder='search shoes' onClick={handleSearchList}></input></div>
+    
       
       <div className={`${styles.profilediv} d-none d-sm-none d-md-block`}>
-        <Image src={face} height={50} width={50} alt='profile picture'></Image>
+        <button className={styles.profile_dd_btn} onClick={handleProfileDropDown}>
+        <Image src={face} height={50} width={50} alt='profile picture' className={styles.faceimg}></Image>
+        </button>
+
+      
 
       </div>
-
+     
     </div>
 
    {
@@ -107,10 +123,65 @@ function NavBar() {
      </div> : ''
 
    }
+   
 
 
    
   </div>
+   {
+    profileDropDown? <div className={styles.profileAfter}>
+    <ul class="list-group">
+    <li class="list-group-item"><span className='bi bi-person text-primary'></span><Link href='/Profile' passHref legacyBehavior ><a className='text-decoration-none'> Profile</a></Link> </li>
+    <li class="list-group-item"><span className='bi bi-gear text-secondary'></span><Link href='/Profile' passHref legacyBehavior ><a className='text-decoration-none text-secondary'> Settings</a></Link> </li>
+    <li class="list-group-item"><span className='bi bi-person-add text-success'></span><Link href='/Profile' passHref legacyBehavior ><a className='text-decoration-none text-success'> SignUp</a></Link> </li>
+    <li class="list-group-item"><span className='bi bi-box-arrow-right text-danger'></span><Link href='/Profile' passHref legacyBehavior ><a className='text-decoration-none text-danger'> LogOut</a></Link> </li>
+    
+    
+  
+  </ul>
+  
+    </div> :''
+   }
+   {
+    searchlist?  <div className={`${styles.searchlist} `}>
+    <ul class="list-group">
+   <li class="list-group-item d-flex">
+     <Image src='https://cdn-images.farfetch-contents.com/17/25/28/06/17252806_35312450_1000.jpg' height={100} width={120} alt='searched shoes'></Image>
+     <div className='mx-2'>
+       <p><b>Adidas</b></p>
+       <p>x Bad Bunny Forum Buckle Low "Back To School" sneakers</p>
+ 
+     </div>
+   </li>
+ 
+ 
+   <li class="list-group-item d-flex">
+     <Image src='https://cdn-images.farfetch-contents.com/17/25/28/06/17252806_35312450_1000.jpg' height={100} width={120} alt='searched shoes'></Image>
+     <div className='mx-2'>
+       <p><b>Adidas</b></p>
+       <p>x Bad Bunny Forum Buckle Low "Back To School" sneakers</p>
+ 
+     </div>
+   </li>
+ 
+ 
+ 
+   <li class="list-group-item d-flex">
+     <Image src='https://cdn-images.farfetch-contents.com/17/25/28/06/17252806_35312450_1000.jpg' height={100} width={120} alt='searched shoes'></Image>
+     <div className='mx-2'>
+       <p><b>Adidas</b></p>
+       <p>x Bad Bunny Forum Buckle Low "Back To School" sneakers</p>
+ 
+     </div>
+   </li>
+   
+  
+ </ul>
+    </div> : ''
+   }
+
+ 
+  </>
   )
 }
 

@@ -5,7 +5,7 @@ import styles from '../styles/Profile.module.css';
 import NavBar from './NavBar';
 import Link from 'next/link';
 import Head from 'next/head';
-import { Col } from 'react-bootstrap';
+import Footer from './Footer';
 
 
 function Profile() {
@@ -32,74 +32,22 @@ function Profile() {
          
            
          </div>
+         <p className='text-center'>Shoe Gallery</p>
          <div className='row'>
-          
-           <p className='text-center text-black-50'>Your Recently Viewed</p>
-           <div className='row'>
-            <Col md={4} sm={12} className={`${styles.imageContainer} d-flex justify-content-center`} >
-              <Image src='https://cdn-images.farfetch-contents.com/13/15/75/38/13157538_14718351_1000.jpg' height={300} width={280}></Image>
-              
-                 <div>
-                <button className='btn btn-outline-dark mx-2 btn-sm'><span className='bi bi-cart'></span></button>
-                <button className='btn btn-outline-dark btn-sm'><span className='bi bi-currency-dollar'></span></button>
-                <button className='btn btn-outline-dark mx-2 btn-sm'><span className='bi bi-eye '></span></button>
-                
-              </div> 
-              
-            </Col>
-
-            <Col md={4} sm={12} className='d-flex justify-content-center align-items-start'>
-              <Image src='https://cdn-images.farfetch-contents.com/17/37/18/27/17371827_37699721_1000.jpg' height={300} width={280}></Image>
-              
-               <div className={``}>
-                <button className='btn btn-outline-dark mx-2 btn-sm'><span className='bi bi-cart'></span></button>
-                <button className='btn btn-outline-dark btn-sm'><span className='bi bi-currency-dollar'></span></button>
-                <button className='btn btn-outline-dark mx-2 btn-sm'><span className='bi bi-eye '></span></button>
-                
-              </div> 
-              
-              </Col>
-
-
-            <Col md={4} sm={12} className='d-flex justify-content-center align-items-start'>
-              <Image src='https://cdn-images.farfetch-contents.com/19/41/84/65/19418465_45093037_1000.jpg' height={300} width={280}></Image>
-            
-                <button className='btn btn-outline-dark mx-2 btn-sm'><span className='bi bi-cart'></span></button>
-                <button className='btn btn-outline-dark btn-sm'><span className='bi bi-currency-dollar'></span></button>
-                <button className='btn btn-outline-dark mx-2 btn-sm'><span className='bi bi-eye '></span></button>
-                
-            
-              </Col>
-           
-           </div>
-
-         
-         </div>
-         <div className='row'>
-          <p className='text-center'><b>Recommended for you</b></p>
-          <div className='row'>
-            <Col sm={12} md={4} className='d-flex flex-column align-items-center'>
-              <Image src='https://cdn-images.farfetch-contents.com/20/24/82/50/20248250_50390341_1000.jpg' height={300} width={280}></Image>
-              <div className='card-body'>
-                <h5 className='card-title'>A-COLD-WAll</h5>
-              </div>
-            </Col>
-            <Col sm={12} md={4} className='card border-0'>
-              <Image src='https://cdn-images.farfetch-contents.com/20/22/03/39/20220339_50105599_1000.jpg' height={300} width={280}></Image>
-              <div className='card-body'>
-                <h5 className='card-title'>Nike</h5>
-              </div>
-            </Col>
-            <Col sm={12} md={4} className='card border-0'>
-              <Image src='https://cdn-images.farfetch-contents.com/13/55/56/93/13555693_21559125_1000.jpg' height={300} width={280}></Image>
-              <div className='card-body'>
-                <h5 className='card-title'>Nike</h5>
-              </div>
-            </Col>
+          <div className='col-sm-4 border border-top-0  border-bottom-0 d-flex flex-column align-items-sm-center'><Image src='https://cdn-images.farfetch-contents.com/20/83/96/83/20839683_50681641_1000.jpg' height={300} width={250} alt='gallery shoes'></Image>
+            <div><p><b>Adidas</b></p>Bad Bunny Response CL Sneakers</div>
           </div>
-         </div>
+          <div className='col-sm-4 border  border-top-0 border-bottom-0 d-flex flex-column align-items-sm-center'><Image src='https://cdn-images.farfetch-contents.com/20/83/96/83/20839683_50681641_1000.jpg' height={300} width={250} alt='gallery shoes'></Image>
+          <div><p><b>Adidas</b></p>Bad Bunny Response CL Sneakers</div>
+          </div>
+          <div className='col-sm-4 border border-top-0 border-bottom-0 d-flex flex-column align-items-sm-center'><Image src='https://cdn-images.farfetch-contents.com/20/83/96/83/20839683_50681641_1000.jpg' height={300} width={250} alt='gallery shoes'></Image>
+          <div><p><b>Adidas</b></p>Bad Bunny Response CL Sneakers</div>
+          </div>
+           
 
          
+    </div>
+    <Footer></Footer>
     </div>
   )
 }

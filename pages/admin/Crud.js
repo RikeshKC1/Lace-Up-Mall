@@ -1,11 +1,33 @@
-import React, { useRef, useState } from 'react'
-import styles from '../styles/Update.module.css';
-  function Update(){
+import React, { useRef, useState } from 'react';
+import styles from '../../styles/Update.module.css';
+import Image from 'next/image';
+import axios from 'axios';
+import noImage from '../../public/no_image.png';
+  function Crud(){
+
+
+
+   
    const getfile=useRef();
-   const handleFile=(e)=>{
+   const [mainImg,setMainImg]=useState(noImage);
+
+  
+   const handleFile= async(e)=>{
           const selectedFile=e.target.files[0];
-          console.log(selectedFile);
-          console.log(selectedFile.name);
+          const formData=new FormData();
+          formData.append('file',selectedFile);
+      
+    const response = await axios.post('http://127.0.0.1:8080/upload_temp_img',formData,{
+             headers:{
+               'Content-Type':'multipart/form-data',
+             }
+            });
+            const jsonData=await response.data;
+            console.log(jsonData.temp_file_name);
+            setMainImg(`http://localhost:8080/images/${jsonData.temp_file_name}`);
+            console.log(mainImg);
+
+           
    }
    const[add,setAdd]=useState(false);
    const handleAdd=()=>{
@@ -45,26 +67,50 @@ import styles from '../styles/Update.module.css';
          add===true? <div className={`${styles.model} row mt-5 d-flex align-items-center justify-content-center`}>
          <div className={`${styles.innerModel} `}>
             <button className={`btn btn-danger ${styles.xbtn}`} onClick={handleCut}><span className='bi bi-bi bi-x'></span></button>
-            <h4 className='text-center text-secondary'>Add New Shoes</h4>
+            <h5 className='text-center text-dark my-4'>Add New Shoes</h5>
             <div className='row d-flex justify-content-center'>
                <div className='col-sm-6'>
                   <input type='text' className='form-control my-2' placeholder='Shoes FullName' name='name'></input>
-                  <textarea className='form-control' placeholder='Shoes Description' name='des'></textarea>
+
                   <select className='form-select my-2' value=''>
                      <option selected disabled value=''>Select Shoes Brand</option>
                      <option selected value=''>Adidas</option>
                      <option selected value=''>Jordan</option>
                      <option selected value=''>Nike</option>
                   </select>
-                  <input className='form-control' type='text' placeholder='Shoes Price'></input>
-                <span className='text-black-50 my-2'>Select Main Picture</span>
+                  <span className='text-black-50'>Amount of shoes</span>
+                  <div className='row d-flex justify-content-lg-between'>
+                     <input className='form-control' placeholder='S' style={{width:'70px'}}></input>
+                     <input className='form-control' placeholder='M' style={{width:'70px'}}></input>
+                     <input className='form-control' placeholder='L' style={{width:'70px'}}></input>
+                     <input className='form-control' placeholder='XL' style={{width:'70px'}}></input>
+                     <input className='form-control' placeholder='XXL' style={{width:'70px'}}></input>
+                  </div>
+                  
+               <br></br>
+                <span className='text-black-50'>Select Main Picture</span>
                 <br></br>
-                 <button className='btn btn-secondary' onClick={()=>getfile.current.click()}>
-                 <span className='bi bi-card-image '></span>
+                 <button className='btn btn-dark' onClick={()=>getfile.current.click()}>
+                 <span className='bi bi-card-image'></span>
+
                  </button>
+                 <Image src={mainImg} className='mx-2' alt='Main picture' width={120} height={100}></Image>
                  <input type='file' className='d-none' ref={getfile} onChange={handleFile}></input>
                  <br></br>
-                 <div className='my-4 d-flex justify-content-center align-items-center' style={{width:'100%'}} ><button className={`${styles.addpic} btn btn-primary`}>Add</button></div>
+               
+               </div>
+               <div className='col-sm-6'>
+               <textarea className='form-control' placeholder='Shoes Description' name='des'></textarea>
+               <input className='form-control my-2' type='text' placeholder='Shoes Price'></input>
+               <input className='form-control' placeholder='Shoes Color'></input>
+               <br></br>
+               <span className='text-black-50 my-3'>Select Extra Pictures</span>
+               <br></br>
+               <div className=''> <button className='btn btn-dark'><span className='bi bi-card-image'></span></button>
+
+                  
+                   
+                              </div>
                </div>
             </div>
           </div>
@@ -75,4 +121,4 @@ import styles from '../styles/Update.module.css';
   )
 }
 
-export default Update
+export default Crud

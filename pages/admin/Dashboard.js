@@ -1,11 +1,11 @@
 import React, { useRef, useState } from 'react'
-import styles from '../styles/Update.module.css';
+import styles from '../../styles/Update.module.css';
 import Image from 'next/image';
-import chart from '../public/chart.png';
-import money from '../public/money.png';
-import face from '../public/face.jpg';
-import shoes from '../public/shoeslogo.png';
-import line from '../public/line.png';
+import chart from '../../public/chart.png';
+import money from '../../public/money.png';
+import face from '../../public/face.jpg';
+import shoes from '../../public/shoeslogo.png';
+import line from '../../public/line.png';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 function Dashboard(){

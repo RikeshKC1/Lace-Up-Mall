@@ -45,9 +45,8 @@ function Home() {
               <p className='text-center text-dark'>New Available Product</p>
                 <h5 className='card-title'><b>Jordan</b></h5>
                 <p className='card-text'>Air Jordan 1 High OG "True Blue" sneakers</p>
-                {/* <p className='card-text fs-4'><span className='badge bg-danger'>$118</span></p> */}
+                <p className='card-text fs-4'><span className='badge bg-dark'>Rs 80,000</span></p>
                 <button className='btn btn-outline-dark mx-2'><span className='bi bi-cart'>Cart</span></button>
-                <button className='btn btn-outline-dark'><span className='bi bi-currency-dollar'>BuyNow</span></button>
                 <button className='btn btn-outline-dark mx-2'><span className='bi bi-eye'></span></button>
               </div>
             </div>
@@ -66,11 +65,11 @@ function Home() {
           </div>
           <div  className='col-sm-6 d-flex justify-content-end'>
             <select className='form-select' style={{width:'210px'}}>
-            <option selected disabled>Select Shoes Category</option>
-            <option>Jordan</option>
-            <option>Adidas</option>
-            <option>Puma</option>
-            <option>Reebok</option>
+            <option selected disabled value=''>Select Shoes Category</option>
+            <option value=''>Jordan</option>
+            <option value=''>Adidas</option>
+            <option value=''>Puma</option>
+            <option value=''>Reebok</option>
             </select>
           </div>
         </div>
