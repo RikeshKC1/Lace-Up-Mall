@@ -15,19 +15,22 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
+            overflow: auto;
+            /* Enable scrolling */
         }
         
         .container {
-            width: 450px;
+            max-width: 450px;
             margin: 0 auto;
             padding: 20px;
             border: 1px solid #a14343;
             border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-            background-color: #fff;
+            box-shadow: 20px rgba(0, 0, 0, 0.3);
+            background-color: #c0afaf;
             display: flex;
             flex-direction: column;
             align-items: center;
+            overflow: hidden;
         }
         
         .container h2 {
@@ -63,12 +66,18 @@
             background-color: #45a049;
         }
         
-        .form-group .name input {
-            width: calc(50% - 5px);
+        .form-group .name {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
         }
         
-        .form-group .name input:first-child {
-            margin-right: 10px;
+        .form-group .name input {
+            width: 100%;
+            padding: 8px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
         }
         
         .form-group .profile-picture-label {
@@ -140,9 +149,9 @@
 
     <script>
         document.getElementById("registerForm").addEventListener("submit", function(event) {
-            event.preventDefault(); // Prevent the form from submitting
+            event.preventDefault();
 
-            // Get form values
+
             var firstName = document.getElementById("FirstName").value;
             var lastName = document.getElementById("LastName").value;
             var userName = document.getElementById("UserName").value;
@@ -157,17 +166,12 @@
             var profilePicture = document.getElementById("ProfilePicture").value;
             var dateOfBirth = document.getElementById("DateOfBirth").value;
 
-            // Perform form validation
+
             if (firstName.trim() === "" || lastName.trim() === "" || userName.trim() === "" || email.trim() === "" || password.trim() === "" || country.trim() === "" || phoneNumber.trim() === "" || city.trim() === "" || state.trim() === "" || streetAddress.trim() === "" || shippingAddress.trim() === "" || profilePicture.trim() === "" || dateOfBirth.trim() === "") {
                 alert("Please fill in all fields");
                 return;
             }
 
-
-            // Perform further processing (e.g., sending data to server, etc.)
-            // ...
-
-            // Clear form fields
             document.getElementById("FirstName").value = "";
             document.getElementById("LastName").value = "";
             document.getElementById("UserName").value = "";
