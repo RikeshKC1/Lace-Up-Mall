@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register Page</title>
@@ -24,33 +23,34 @@
             padding: 20px;
             border: 1px solid #a14343;
             border-radius: 10px;
-            box-shadow: #2c2e2c;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            background-color: #fff;
             display: flex;
             flex-direction: column;
+            align-items: center;
         }
         
         .container h2 {
             text-align: center;
+            margin-bottom: 20px;
         }
         
         .form-group {
+            width: 100%;
             margin-bottom: 20px;
-            flex-direction: row;
-            display: flex;
-            justify-content: space-between;
-            text-align: center;
         }
         
         .form-group label {
-            display: flex;
+            display: block;
             margin-bottom: 5px;
         }
         
-        .form-group input {
+        .form-group input,
+        .form-group select {
             width: 100%;
             padding: 8px;
             border-radius: 4px;
-            border: 1px solid #3c3434;
+            border: 1px solid #ccc;
         }
         
         .form-group input[type="submit"] {
@@ -63,10 +63,17 @@
             background-color: #45a049;
         }
         
-        .name {
-            display: flex;
-            justify-content: space-around;
-            width: 100%;
+        .form-group .name input {
+            width: calc(50% - 5px);
+        }
+        
+        .form-group .name input:first-child {
+            margin-right: 10px;
+        }
+        
+        .form-group .profile-picture-label {
+            display: block;
+            margin-bottom: 5px;
         }
     </style>
 </head>
@@ -78,17 +85,52 @@
             <div class="form-group">
                 <div class="name">
                     <input type="text" id="FirstName" placeholder="First Name" required>
-                    <input type="text" id="LastName" placeholder="LastName" required>
+                    <input type="text" id="LastName" placeholder="Last Name" required>
                 </div>
             </div>
             <div class="form-group">
-                <input type="text" id="UserName" placeholder="UserName" required>
+                <input type="text" id="UserName" placeholder="Username" required>
             </div>
             <div class="form-group">
                 <input type="text" id="Email" placeholder="Email" required>
             </div>
             <div class="form-group">
-                <input type="text" id="Password" placeholder="Password" required>
+                <label for="Password">Password:</label>
+                <input type="password" id="Password" placeholder="Password" required>
+            </div>
+
+            <div class="form-group">
+                <label for="Country">Country:</label>
+                <select id="Country" required>
+                    <option value="" disabled selected>Select your country</option>
+                    <option value="USA">USA</option>
+                    <option value="Canada">Canada</option>
+                    <option value="UK">UK</option>
+                    <option value="Australia">Australia</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <input type="text" id="PhoneNumber" placeholder="Phone Number" required>
+            </div>
+            <div class="form-group">
+                <input type="text" id="City" placeholder="City" required>
+            </div>
+            <div class="form-group">
+                <input type="text" id="State" placeholder="State" required>
+            </div>
+            <div class="form-group">
+                <input type="text" id="StreetAddress" placeholder="Street Address" required>
+            </div>
+            <div class="form-group">
+                <input type="text" id="ShippingAddress" placeholder="Shipping Address" required>
+            </div>
+            <div class="form-group">
+                <label class="profile-picture-label" for="ProfilePicture">Profile Picture:</label>
+                <input type="file" id="ProfilePicture" accept="image/*" required>
+            </div>
+            <div class="form-group">
+                <label for="DateOfBirth">Date of Birth:</label>
+                <input type="date" id="DateOfBirth" required>
             </div>
             <div class="form-group">
                 <input type="submit" value="Register">
@@ -96,22 +138,53 @@
         </form>
     </div>
 
-
     <script>
-        document.getElementById("registerForm").addEventListener = "submit",
-            function(event) {
-                event.preventDefault();
+        document.getElementById("registerForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent the form from submitting
 
+            // Get form values
+            var firstName = document.getElementById("FirstName").value;
+            var lastName = document.getElementById("LastName").value;
+            var userName = document.getElementById("UserName").value;
+            var email = document.getElementById("Email").value;
+            var password = document.getElementById("Password").value;
+            var country = document.getElementById("Country").value;
+            var phoneNumber = document.getElementById("PhoneNumber").value;
+            var city = document.getElementById("City").value;
+            var state = document.getElementById("State").value;
+            var streetAddress = document.getElementById("StreetAddress").value;
+            var shippingAddress = document.getElementById("ShippingAddress").value;
+            var profilePicture = document.getElementById("ProfilePicture").value;
+            var dateOfBirth = document.getElementById("DateOfBirth").value;
+
+            // Perform form validation
+            if (firstName.trim() === "" || lastName.trim() === "" || userName.trim() === "" || email.trim() === "" || password.trim() === "" || country.trim() === "" || phoneNumber.trim() === "" || city.trim() === "" || state.trim() === "" || streetAddress.trim() === "" || shippingAddress.trim() === "" || profilePicture.trim() === "" || dateOfBirth.trim() === "") {
+                alert("Please fill in all fields");
+                return;
             }
 
-        var FirstName = document.getElementById("FirstName").value;
-        var LastName = document.getElementById("LastName").value;
-        var UserName = document.getElementById("UserName").value;
-        var email = document.getElementById("email").value;
-        var password = document.getElementById("password").value;
 
+            // Perform further processing (e.g., sending data to server, etc.)
+            // ...
 
-        if (FirstName.trim() === "" || LastName.trim() === "" || email.trim() === "" || password.trim() === "") {
-            alert("Please fill in all fields");
-            return;
-        }
+            // Clear form fields
+            document.getElementById("FirstName").value = "";
+            document.getElementById("LastName").value = "";
+            document.getElementById("UserName").value = "";
+            document.getElementById("Email").value = "";
+            document.getElementById("Password").value = "";
+            document.getElementById("Country").value = "";
+            document.getElementById("PhoneNumber").value = "";
+            document.getElementById("City").value = "";
+            document.getElementById("State").value = "";
+            document.getElementById("StreetAddress").value = "";
+            document.getElementById("ShippingAddress").value = "";
+            document.getElementById("ProfilePicture").value = "";
+            document.getElementById("DateOfBirth").value = "";
+
+            alert("Registration successful!");
+        });
+    </script>
+</body>
+
+</html>
