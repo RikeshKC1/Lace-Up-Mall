@@ -106,9 +106,8 @@ import noImage from '../../public/no_image.png';
                <br></br>
                <span className='text-black-50 my-3'>Select Extra Pictures</span>
                <br></br>
-               <div className=''> <button className='btn btn-dark'><span className='bi bi-card-image'></span></button>
+               <div className=''> <button className='btn btn-dark' type='submit'><span className='bi bi-card-image'></span></button>
 
-                  
                    
                               </div>
                </div>

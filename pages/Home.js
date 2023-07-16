@@ -4,6 +4,7 @@ import styles from '../styles/Homepage.module.css';
 import { useEffect, useState } from 'react';
 import NavBar from './NavBar';
 import Footer from './Footer';
+import { useRouter } from 'next/router';
 
 
 function Home() {
@@ -16,12 +17,16 @@ function Home() {
   
   const [index, setIndex] = useState(0);
   const [newImage, setNewImage] = useState(imageArray[0]);
+  const router=useRouter();
+  
   
   useEffect(() => {
     setTimeout(() => {
       setIndex(prevIndex => (prevIndex + 1) % imageArray.length);
       setNewImage(imageArray[index]);
     }, 2000);
+    
+
     
   }, [index]);
   
