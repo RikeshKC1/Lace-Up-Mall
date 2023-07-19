@@ -55,8 +55,8 @@ function Signup() {
           
       formData.append('pp',pp);
       formData.append('userType',"Normal");
-     Object.entries(values).forEach(([keys,value])=>{
-         formData.append(keys,value);
+     Object.entries(values).forEach(([key,value])=>{
+         formData.append(key,value);
      });
      const response = await axios.post("http://localhost:8080/signup",formData,{
       headers:{
