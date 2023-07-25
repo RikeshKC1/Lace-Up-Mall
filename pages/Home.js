@@ -5,30 +5,26 @@ import { useEffect, useState } from 'react';
 import NavBar from './NavBar';
 import Footer from './Footer';
 import { useRouter } from 'next/router';
+import axios from 'axios';
 
 
-function Home() {
-  // const imageArray="https://cdn-images.farfetch-contents.com/19/51/74/53/19517453_43785045_1000.jpg"
+export default function Home({newProduct}) {
   const imageArray = [
-    "https://cdn-images.farfetch-contents.com/19/51/74/53/19517453_43785045_1000.jpg",
-    "https://cdn-images.farfetch-contents.com/19/51/74/53/19517453_43784647_1000.jpg",
-    "https://cdn-images.farfetch-contents.com/19/51/74/53/19517453_43782561_1000.jpg"
-  ];
-  
+    newProduct[0].shoeDisplayPicture,newProduct[0].shoeExtraPicture1,newProduct[0].shoeExtraPicture2,newProduct[0].shoeExtraPicture3];
+  console.log(newProduct);
   const [index, setIndex] = useState(0);
   const [newImage, setNewImage] = useState(imageArray[0]);
   const router=useRouter();
-  
+
   
   useEffect(() => {
     setTimeout(() => {
       setIndex(prevIndex => (prevIndex + 1) % imageArray.length);
       setNewImage(imageArray[index]);
-    }, 2000);
+    }, 2000);    
     
+  },[index]);
 
-    
-  }, [index]);
   
   return (
     <>
@@ -45,12 +41,12 @@ function Home() {
           <div className='col-md-6 col-12 d-flex justify-content-center align-items-center'>
            <div className='row'>
            <div className={`${styles.cardShadow} card w-100 border`}>
-              <Image src='https://cdn-images.farfetch-contents.com/19/51/74/53/19517453_43785045_1000.jpg' width={400} height={400} alt='jordan1' className='card-img-top'></Image>
+              <Image src={newProduct[0].shoeDisplayPicture} width={400} height={400} alt={newProduct[0].shoeName} className='card-img-top'></Image>
               <div className='card-body'>
               <p className='text-center text-dark'>New Available Product</p>
-                <h5 className='card-title'><b>Jordan</b></h5>
-                <p className='card-text'>Air Jordan 1 High OG "True Blue" sneakers</p>
-                <p className='card-text fs-4'><span className='badge bg-dark'>Rs 80,000</span></p>
+                <h5 className='card-title'><b>{newProduct[0].shoeBrand.brandName}</b></h5>
+                <p className='card-text'>{newProduct[0].shoeName}</p>
+                <p className='card-text fs-4'><span className='badge bg-dark'>Rs {newProduct[0].shoePrice}</span></p>
                 <button className='btn btn-outline-dark mx-2'><span className='bi bi-cart'>Cart</span></button>
                 <button className='btn btn-outline-dark mx-2'><span className='bi bi-eye'></span></button>
               </div>
@@ -370,4 +366,18 @@ function Home() {
   )
 }
 
-export default Home
+export async function getStaticProps(){
+   const response=await axios.get("http://localhost:8080/get_latest_product");
+   const newProduct=response.data;
+   
+
+   return{
+    props:{
+      newProduct,
+    }
+   }
+
+
+}
+
+ 
