@@ -128,7 +128,7 @@ const response = await axios.post('http://127.0.0.1:8080/upload_temp_img',formDa
 const{values,errors,handleBlur,handleChange,handleSubmit,touched}=useFormik({
       initialValues:initialValues,
       validationSchema:curdSchema,
-      onSubmit:(values,action)=>{
+      onSubmit:(values,action)=>{ 
          action.resetForm();
       }
 });
@@ -186,7 +186,7 @@ const handleAddShoesBtn=async()=>{
    
    try{
       const response=await axios.post("http://localhost:8080/addShoes",formData,{
-         headers:{
+         headers:{ 
             "Content-Type":"multipart/form-data"
          }
       });
@@ -287,7 +287,7 @@ const handleAddShoesBtn=async()=>{
                   
                <br></br> 
                <span className='small text-black-50'>Select shoes type</span>
-               <select className='form-select' value={values.shoeType} defaultValue={values.shoeType} name='shoeType' onChange={handleChange} onBlur={handleBlur}>
+               <select className='form-select' value={values.shoeType} defaultValue={values.shoeType}  name='shoeType' onChange={handleChange} onBlur={handleBlur}>
                   <option value='Male'>Male</option>
                   <option value='Female'>Female</option>
                </select>
