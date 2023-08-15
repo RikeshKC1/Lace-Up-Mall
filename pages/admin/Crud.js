@@ -5,6 +5,7 @@ import axios from 'axios';
 import noImage from '../../public/no_image.png';
 import { curdSchema } from '<hello>/src/schemas/crud';
 import { useFormik } from 'formik';
+import Link from 'next/link';
  export default function Crud({brands}){
 
     
@@ -228,7 +229,7 @@ const handleAddShoesBtn=async()=>{
    
             <div className={`${styles.box} d-flex  flex-column align-items-center justify-content-around rounded`} style={{height:'200px',width:'200px'}}>
             <span className='badge bg-secondary'><b>DashBoard</b></span>
-               <button className='btn btn-outline-danger'><span className='bi bi-clipboard2-check'> DashBoard</span></button>
+               <button className='btn btn-outline-danger'><span className='bi bi-clipboard2-check'></span><Link legacyBehavior passHref href='/admin/DashBoard'><a className='text-danger text-decoration-none'>Dashboard</a></Link></button>
                
             </div>
             <div className={`${styles.box} d-flex align-items-center justify-content-around flex-column rounded`} style={{height:'200px',width:'200px'}}>

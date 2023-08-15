@@ -30,16 +30,16 @@ console.log(userData);
       }
      });
      const jsonData=response.data;
-     const id=jsonData.userId;
+     console.log(localStorage.getItem("userId"))
      router.push({
       pathname:'/Home',
-      query:{id}
      })
      
        
     } catch (error) {
       console.log("No user Found");
     }
+    
     
 
   }

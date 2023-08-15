@@ -25,8 +25,8 @@ function Dashboard(){
          <div className='col-sm-6 d-flex align-items-center justify-content-md-around justify-content-between'>
 
            <div> 
-            <Link href='/dashboard' passHref legacyBehavior ><a className={ router.pathname==='/Dashboard'?styles.activelink:styles.link}>Dashboard</a></Link>
-            <Link href='' passHref legacyBehavior ><a className={ router.pathname==='/Crud'?styles.activelink:styles.link}>Crud</a></Link>
+            <Link href='/Home' passHref legacyBehavior ><a className=''>Home</a></Link>
+            <Link href='/admin/Crud' passHref legacyBehavior ><a className={ router.pathname==='/Crud'?styles.activelink:styles.link}>Crud</a></Link>
            </div>
 
             <div  className='border'>

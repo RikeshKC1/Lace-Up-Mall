@@ -21,7 +21,7 @@ function NavBar() {
     router.push('/Cart')
   }
   const redirectDashboard=()=>{
-    router.push('/Dashboard')
+    router.push('/admin/Dashboard')
   }
   const redirectProfile=()=>{
    router.push('/Profile')

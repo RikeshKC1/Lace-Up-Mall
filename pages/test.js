@@ -1,9 +1,10 @@
+"use client"
 import React from 'react'
 
 function test() {
+  console.log(localStorage.getItem("userId"))
   const handleSubmit=(e)=>{
-    e.preventDefault();
-    console.log("form submitted")
+  
     
 
     

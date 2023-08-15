@@ -6,8 +6,6 @@ import NavBar from './NavBar';
 import Footer from './Footer';
 import { useRouter } from 'next/router';
 import axios from 'axios';
-import { faFemale } from '@fortawesome/free-solid-svg-icons';
-
 
 export default function Home({newProduct,male,female,category}) {
   const imageArray = [
@@ -17,9 +15,7 @@ export default function Home({newProduct,male,female,category}) {
   const [newImage, setNewImage] = useState(imageArray[0]);
   const router=useRouter();
   const [shoesCategory,setShoesCategory]=useState(category);
-
-  const {id}=router.query;
-  console.log(id);
+  
     // useEffect(() => {
   //   setTimeout(() => {
   //     setIndex(prevIndex => (prevIndex + 1) % imageArray.length);
@@ -36,11 +32,36 @@ export default function Home({newProduct,male,female,category}) {
     .catch(error=>{
       console.log("An error occurred: ",error);
     })
+  
         
   }
   const addToCart=async(e)=>{
-    const userId=id;
+    const userId=localStorage.getItem("userId");
     const shoeId=e.target.value;
+    const formData=new FormData();
+    formData.append("userId",userId);
+    formData.append("shoeDetails",shoeId);
+    console.log(formData)
+    try {
+   const response = await axios.post("http://localhost:8080/addToCart",formData,{
+        headers:{
+            'Content-Type':'multipart/form-data',
+        }
+      });
+      router.push({
+        pathname:'/Cart',
+      });
+    
+    
+      
+    } catch (error) {
+      console.log(error);
+    } 
+
+    
+     
+      
+  
     
   }
 
@@ -68,7 +89,7 @@ export default function Home({newProduct,male,female,category}) {
                 <h5 className='card-title'><b>{newProduct[0].shoeBrand.brandName}</b></h5>
                 <p className='card-text'>{newProduct[0].shoeName}</p>
                 <p className='card-text fs-4'><span className='badge bg-dark'>Rs {newProduct[0].shoePrice}</span></p>
-                <button className='btn btn-outline-dark mx-2' onClick={addToCart}><span className='bi bi-cart'>Cart</span></button>
+                <button className='btn btn-outline-dark mx-2' onClick={addToCart} value={newProduct[0].shoeId} id={`btn${newProduct[0].shoeId}`}><label className='bi bi-cart' id={`btn${newProduct[0].shoeId}`}></label></button>
                 <button className='btn btn-outline-dark mx-2'><span className='bi bi-eye'></span></button>
               </div>
             </div>
@@ -104,11 +125,11 @@ export default function Home({newProduct,male,female,category}) {
 
           <div className='col-sm-5  col-md-3'>
           <div className='card overflow-hidden border'>
-            <Image src={item.shoeDisplayPicture} height={260} width={280}></Image>
+            <Image src={item.shoeDisplayPicture} height={260} width={280} alt={item.ShoeName}></Image>
             <div className='card-body'>
               <p>{item.shoeName}</p>
               <div>
-<button className='btn' value={item.shoeId} onClick={addToCart}><span className='bi bi-cart lead'></span></button>
+<button className='btn' value={item.shoeId} onClick={addToCart} id={`btn${item.shoeId}`}><label className='bi bi-cart lead' htmlFor={`btn${item.shoeId}`}></label></button>
 <button className='btn' value={item.shoeId}><span className='bi bi-eye lead'></span></button>
 </div>
             </div>
@@ -138,12 +159,12 @@ export default function Home({newProduct,male,female,category}) {
               
         <div className='col-8 col-sm-6 col-md-3' key={item.shoeId}>
         <div className='border card overflow-hidden'>
-          <Image  src={item.shoeDisplayPicture} height={260} width={280}></Image>
+          <Image  src={item.shoeDisplayPicture} height={260} width={280} alt={item.shoeName}></Image>
        <div className='card-body'>
        <h5 className='card-title'>{item.shoeBrand.brandName}</h5>
        <p className='card-text'>x Sean Wotherspoon Superstar "Superearth" sneakers</p>
        <div>
-       <button className='btn' value={item.shoeId} onClick={addToCart}><span className='bi bi-cart lead'></span></button>
+       <button className='btn' value={item.shoeId} onClick={addToCart} id={`btn${item.shoeId}`}><label className='bi bi-cart' htmlFor={`btn${item.shoeId}`}></label></button>
        <button className='btn' value={item.shoeId}><span className='bi bi-eye lead'></span></button>
        </div>
      </div>
@@ -169,13 +190,13 @@ export default function Home({newProduct,male,female,category}) {
             female.map(item=>(
               <div className='col-5 col-md-3' key={item.shoeId}>
               <div className='card overflow-hidden'>
-                <Image  src={item.shoeDisplayPicture} height={260} width={280}></Image>
+                <Image  src={item.shoeDisplayPicture} height={260} width={280} alt={item.shoeName}></Image>
          
              <div className='card-body'>
              <h5 className='card-title'>{item.shoeBrand.brandName}</h5>
              <p className='card-text'>{item.shoeName}</p>
              <div>
-             <button className='btn' value={item.shoeId} onClick={addToCart}><span className='bi bi-cart lead'></span></button>
+             <button className='btn' value={item.shoeId} onClick={addToCart} id={`btn${item.shoeId}`}><label className='bi bi-cart lead' htmlFor={`btn${item.shoeId}`}></label></button>
              <button className='btn' value={item.shoeId}><span className='bi bi-eye lead'></span></button>
              </div>
            </div>

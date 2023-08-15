@@ -1,14 +1,29 @@
 import Image from 'next/image'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import profile from '../public/face.jpg';
 import styles from '../styles/Profile.module.css';
 import NavBar from './NavBar';
 import Link from 'next/link';
 import Head from 'next/head';
 import Footer from './Footer';
+import axios from 'axios';
 
 
-function Profile() {
+
+export default function Profile() {
+  const [userData,setUserData]=useState([]);
+useEffect(()=>{
+  const userId=localStorage.getItem("userId");
+   axios.get(`http://localhost:8080/getUser/${userId}`).then(response=>{
+    setUserData(response.data);
+   }).catch(error=>{
+    console.log(error)
+   })
+},[])
+
+console.log(userData);
+
+
   return (
     <div className='conatiner-fluid'>
       <Head>
@@ -18,12 +33,12 @@ function Profile() {
          <div className='row d-flex my-5 align-items-center'>
           <div className='col-md-4 col-12 d-flex justify-content-center flex-column align-items-center'>
           <div className={`${styles.pp} mx-3`}>
-             <Image  src={profile} height={180} width={180} alt='profile picture'></Image>
+             <Image  src={userData.profilePicture} height={180} width={180} alt='profile picture'></Image>
            </div>
-           <p className='mx-5'><b>Arun Chaudhary</b></p>
-            <p className='mx-4'>Kathmandu,Maitidevi</p>
-            <p className='mx-4 text-primary'>arunchy600@gmail.com</p>
-           <div className='mx-5'> <button className='btn btn-outline-dark btn-sm'><span className='bi bi-pen'> Edit</span></button></div>
+           <p className='mx-5'><b>{userData.firstName} {userData.lastName}</b></p>
+            <p className='mx-4'>{userData.city} {userData.streetAddress}</p>
+            <p className='mx-4 text-primary'>{userData.email}</p>
+           <div className='mx-5'> <button className='btn btn-outline-dark btn-sm' value={userData.userId}><span className='bi bi-pen'> Edit</span></button></div>
           </div>
           <div className='col-md-8'>
           
@@ -52,4 +67,4 @@ function Profile() {
   )
 }
 
-export default Profile
+
